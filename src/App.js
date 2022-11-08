@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Table from "./components/Table.js";
+import mainlogo from "./assets/70067.png";
+import "./style/app.scss";
 
 function App() {
+  const [versus, setVersus] = useState("");
+
+  const handleChange = (e) => {
+    setVersus(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <img src={mainlogo} alt="IN-N-OUT" />
+        <h1 aria-label="In and out versus">Versus</h1>
       </header>
-    </div>
+      <main>
+        <Table versus={versus} change={handleChange} />
+      </main>
+    </>
   );
 }
 

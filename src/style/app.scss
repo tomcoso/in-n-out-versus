@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$red: #c6001d;
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  gap: 1rem;
+  width: 100vw;
+  height: 25vh;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0px 0px 10px -5px #000;
+  border-bottom: 4px solid $red;
+  padding: 1rem;
+
+  > img {
+    height: 8rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    color: #ffef00;
+  }
+}
