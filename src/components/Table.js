@@ -1,56 +1,72 @@
+import { useState } from "react";
 import "../style/table.scss";
 
 const Table = (props) => {
   const versus = props.versus;
-  console.log(versus);
+  const [option, setOption] = useState("");
+
+  const handleOption = (e) => {
+    if (e.target.value === "--Select--") {
+      setOption("");
+      return;
+    }
+    setOption(e.target.value);
+  };
 
   return (
-    <table cellSpacing="0px">
-      <colgroup>
-        <col id="info-col" />
-        <col id="in-n-out-col" />
-        <col id="versus-col" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">IN-N-OUT</th>
-          <th scope="col">
-            <select onChange={props.change} value={versus.name}>
-              <option>Burger King</option>
-              <option>Mc Donald's</option>
+    <div className="table">
+      <div className="table-logo">
+        <img src={versus.logo || ""} alt={versus.name || ""} />
+      </div>
+      {versus && (
+        <>
+          <h2>{versus.name}</h2>
+          <div className="table-main">
+            <span>{versus.info}</span>
+            <span>{versus.info}</span>
+            <span>{versus.info}</span>
+          </div>
+          <div className="table-select">
+            <select onChange={handleOption}>
+              <option>--Select--</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
             </select>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">info</th>
-          <td>info in-n-out</td>
-          <td>info {versus}</td>
-        </tr>
-        <tr>
-          <th scope="row">info</th>
-          <td>info in-n-out</td>
-          <td>info {versus}</td>
-        </tr>
-        <tr>
-          <th scope="row">info</th>
-          <td>info in-n-out</td>
-          <td>info {versus}</td>
-        </tr>
-        <tr>
-          <th scope="row">info</th>
-          <td>info in-n-out</td>
-          <td>info {versus}</td>
-        </tr>
-        <tr>
-          <th scope="row">info</th>
-          <td>info in-n-out</td>
-          <td>info {versus}</td>
-        </tr>
-      </tbody>
-    </table>
+            {option && (
+              <div className="table-option">
+                <h3>{option}</h3>
+                <span>
+                  <span>protein</span>
+                  <span>{versus["option"].info}</span>
+                </span>
+                <span>
+                  <span>fiber</span>
+                  <span>{versus["option"].info}</span>
+                </span>
+                <span>
+                  <span>saturated fats</span>
+                  <span>{versus["option"].info}</span>
+                </span>
+                <span>
+                  <span>meta info</span>
+                  <span>{versus["option"].info}</span>
+                </span>
+                <span>
+                  <span>meta info</span>
+                  <span>{versus["option"].info}</span>
+                </span>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+      {/* {props.remove && versus && (
+        <button className="table-remove" onClick={props.remove}>
+          Remove
+        </button>
+      )} */}
+    </div>
   );
 };
 

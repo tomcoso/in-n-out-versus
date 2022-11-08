@@ -5,6 +5,9 @@
 }
 
 $red: #c6001d;
+$white: #fffff7;
+$dark: #290006;
+$break: #fafffa;
 
 #root {
   display: flex;
@@ -15,23 +18,55 @@ $red: #c6001d;
 
 header {
   display: flex;
-  gap: 1rem;
-  width: 100vw;
-  height: 25vh;
+  width: 100%;
+  min-height: 12vh;
   justify-content: center;
   align-items: flex-end;
-  box-shadow: 0px 0px 10px -5px #000;
-  border-bottom: 4px solid $red;
-  padding: 1rem;
+  z-index: 1;
 
-  > img {
-    height: 8rem;
-  }
+  box-shadow: 0px 1px 10px -5px #000;
+  border-bottom: 4px solid $dark;
+  padding: 10px 1rem;
+  background-color: $white;
 
   h1 {
-    font-size: 4rem;
-    font-family: "Shrikhand", serif;
-    font-weight: 400;
-    color: #ffef00;
+    line-height: 130%;
+
+    span:first-child {
+      font-family: "Open Sans", sans-serif;
+      color: $red;
+      font-size: min(10vw, 3rem);
+      white-space: nowrap;
+    }
+    span:last-child {
+      font-family: "Allura", serif;
+      font-weight: 400;
+      font-size: min(15vw, 4.5rem);
+      color: $dark;
+    }
+  }
+}
+
+#versus-select {
+  padding-top: 2rem;
+  background-color: $white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  select {
+    width: max(50vmin, 300px);
+    font-size: 1.3rem;
+    padding: 2px 1rem;
+    text-align: center;
+    background-color: white;
+    border: 2px solid$dark;
+    border-radius: 5px;
+    box-shadow: inset 0px 5px 10px -10px #000;
+
+    option {
+      width: 230px;
+      background-color: inherit;
+    }
   }
 }
