@@ -40,7 +40,7 @@ header {
       font-weight: 400;
       font-size: min(15vw, 5rem);
       color: #ffef00;
-      text-shadow: 1px 1px 2px #c6001d;
+      text-shadow: 1px 1px 2px $red;
       margin-left: -1.5rem;
     }
   }
@@ -58,20 +58,6 @@ header {
 
   font-family: "Open Sans", sans-serif;
   color: $dark;
-
-  h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    max-width: max(50vmin, 600px);
-  }
-
-  p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 0 1rem;
-    text-align: center;
-    color: #3e6d37;
-  }
 
   label {
     font-weight: 600;
