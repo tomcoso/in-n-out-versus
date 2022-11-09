@@ -71,7 +71,7 @@ const data = [
           protein: "10",
         },
       ],
-      cost: [
+      value: [
         {
           name: "Hamburger",
           price: "2.4",
@@ -199,7 +199,7 @@ const data = [
           protein: "14",
         },
       ],
-      cost: [
+      value: [
         {
           name: "Hamburger",
           price: "2.49",
@@ -327,7 +327,7 @@ const data = [
           protein: "3",
         },
       ],
-      cost: [
+      value: [
         {
           name: "WHOPPER",
           price: "4.29",
@@ -455,7 +455,7 @@ const data = [
           protein: "12",
         },
       ],
-      cost: [
+      value: [
         {
           name: "Dave's Single",
           price: "6.2",
@@ -584,7 +584,7 @@ const data = [
           protein: "N/A",
         },
       ],
-      cost: [
+      value: [
         {
           name: "Hamburger",
           price: "4.12",
@@ -712,7 +712,7 @@ const data = [
           protein: "14",
         },
       ],
-      cost: [
+      value: [
         {
           name: "Charburger",
           price: "6.86",

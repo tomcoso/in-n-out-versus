@@ -3,11 +3,10 @@ import "../style/table.scss";
 
 const Table = (props) => {
   const versus = props.versus;
-  // console.log(versus);
   const compType = props.option;
   const [item, setItem] = useState(versus.option[compType][0]);
-  // console.log(item);
 
+  // ensures a category is always selected on re-render
   useEffect(() => {
     setItem(versus.option[compType || "nutrition"][0]);
   }, [versus, compType]);
@@ -30,21 +29,9 @@ const Table = (props) => {
       {versus && (
         <>
           <h2>{versus.name}</h2>
-          <div className="table-main">
-            <span>
-              <a href={versus.website} target="_blank" rel="noreferrer">
-                Visit Website
-              </a>
-            </span>
-            <span>
-              <a href={versus.nutrition} target="_blank" rel="noreferrer">
-                View nutrition source
-              </a>
-            </span>
-          </div>
           <div className="table-select">
             <label id="label" htmlFor={"select-" + versus.name}>
-              Choose an item
+              Choose item
             </label>
             <select id={"select-" + versus.name} onChange={handleItem}>
               {compType &&
@@ -52,6 +39,7 @@ const Table = (props) => {
                   <option key={i}>{x.name}</option>
                 ))}
             </select>
+            {/* These span elements could be separated into it's own component */}
             {item && compType === "nutrition" ? (
               <div className="table-option nutrition">
                 <h3>Comparing Nutrition</h3>
@@ -122,7 +110,7 @@ const Table = (props) => {
               </div>
             ) : (
               <div className="table-option cost">
-                <h3>Comparing Cost & Value for Money</h3>
+                <h3>Comparing Value</h3>
                 <span>
                   <span>Price</span>
                   <span>${item.price}</span>
@@ -199,6 +187,18 @@ const Table = (props) => {
                 </span>
               </div>
             )}
+          </div>
+          <div className="table-links">
+            <span>
+              <a href={versus.website} target="_blank" rel="noreferrer">
+                Visit Website
+              </a>
+            </span>
+            <span>
+              <a href={versus.nutrition} target="_blank" rel="noreferrer">
+                View nutrition source
+              </a>
+            </span>
           </div>
         </>
       )}

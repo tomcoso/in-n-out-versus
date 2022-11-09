@@ -31,8 +31,6 @@ function App() {
         </h1>
       </header>
       <div id="versus-select">
-        <h3>Compare In-N-Out with other popular fast food restaurant chains</h3>
-        <p>Select popular products on nutrition and value for money</p>
         <label htmlFor="select-restaurant">
           Choose a restaurant to compare
         </label>
@@ -48,7 +46,7 @@ function App() {
         <label htmlFor="select-option">Select a category</label>
         <select id="select-option" onChange={changeType}>
           <option>Nutrition</option>
-          <option>Cost</option>
+          <option>Value</option>
         </select>
       </div>
       {versus && mainData && (
