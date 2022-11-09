@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# In-N-Out Versus
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web app created with React components, context, and Sass for styling.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+The [Context component](./src/components/Context.js) contains all the data that the app uses, it can be converted into JSON and uploaded in a database.
 
-### `npm start`
+It is also easy to add new restaurants to the comparison, albeit adding new parameters to compare against does require some HTML, but as long as the pattern is followed there shouln't be many problems.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Implementing ads into the site should also be possible and not difficult, there is a lot of space on the sides for that on the desktop render, and ad servers like AdSense have an automatic feature where you just copy and paste the code they give you into the [html file](./public/index.html).
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The favicon can be changed, just replace the `favicon.ico` file in [the public folder](./public/).
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## After changes ...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You will have to rebuild the site, that means compiling the code again into a minimized version of itself, that goes into the [build folder](./build/) which is the website that you will host.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+DO NOT MODIFY THESE FILES DIRECTLY!
 
-### `npm run eject`
+Or the site will break, to make changes refer to the [public](./public/) and [src](./src/) folder.
+After you made changed you will have to build the webapp again, you can use the command line / terminal for that with this command from the [root directory](./)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This may change depending on your hosting method, some may build the app in the deployment process itself (like with gh-pages `npm run deploy`)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Inside the [src folder](./src/) you will find the [App component](./src/App.js) which contains the most of the app except for the actual comparison cards which are rendered by the [Table component](./src/components/Table.js)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In the [assets folder](./src/assets/) we have all the logos of the food chains, so if you want to add a new restaurant you would have to first add the logo there and then import it into the [Context component](./src/components/Context.js). This folder can later be uploaded into backend storage if you so want.
