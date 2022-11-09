@@ -23,17 +23,30 @@ const Table = (props) => {
   return (
     <div className="table">
       <div className="table-logo">
-        <img src={versus && versus.logo} alt={versus && versus.name} />
+        <a href={versus.website} target="_blank" rel="noreferrer">
+          <img src={versus && versus.logo} alt={versus && versus.name} />
+        </a>
       </div>
       {versus && (
         <>
           <h2>{versus.name}</h2>
           <div className="table-main">
-            <span>{versus.description}</span>
-            <span>{versus.menuLink}</span>
+            <span>
+              <a href={versus.website} target="_blank" rel="noreferrer">
+                Visit Website
+              </a>
+            </span>
+            <span>
+              <a href={versus.nutrition} target="_blank" rel="noreferrer">
+                View nutrition source
+              </a>
+            </span>
           </div>
           <div className="table-select">
-            <select onChange={handleItem}>
+            <label id="label" htmlFor={"select-" + versus.name}>
+              Choose an item
+            </label>
+            <select id={"select-" + versus.name} onChange={handleItem}>
               {compType &&
                 versus.option[compType].map((x, i) => (
                   <option key={i}>{x.name}</option>
@@ -44,122 +57,144 @@ const Table = (props) => {
                 <h3>Comparing Nutrition</h3>
                 <span>
                   <span>Serving Size</span>
-                  <span>
+                  <span className={item.serving === "N/A" ? "na" : ""}>
                     {item.serving}
-                    {item.serving !== "N/A" && "g"}
+                    <span className="unit">
+                      {item.serving !== "N/A" && "g"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Calories</span>
-                  <span>
+                  <span className={item.cal === "N/A" ? "na" : ""}>
                     {item.cal}
-                    {item.cal !== "N/A" && "kcal"}
+                    <span className="unit">{item.cal !== "N/A" && "kcal"}</span>
                   </span>
                 </span>
                 <span>
                   <span>Fats</span>
-                  <span>
+                  <span className={item.fat === "N/A" ? "na" : ""}>
                     {item.fat}
-                    {item.fat !== "N/A" && "g"}
+                    <span className="unit">{item.fat !== "N/A" && "g"}</span>
                   </span>
                 </span>
                 <span>
                   <span>Cholesterol</span>
-                  <span>
+                  <span className={item.cholesterol === "N/A" ? "na" : ""}>
                     {item.cholesterol}
-                    {item.cholesterol !== "N/A" && "mg"}
+                    <span className="unit">
+                      {item.cholesterol !== "N/A" && "mg"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Sodium</span>
-                  <span>
+                  <span className={item.sodium === "N/A" ? "na" : ""}>
                     {item.sodium}
-                    {item.sodium !== "N/A" && "mg"}
+                    <span className="unit">
+                      {item.sodium !== "N/A" && "mg"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Carbohydrates</span>
-                  <span>
+                  <span className={item.carbs === "N/A" ? "na" : ""}>
                     {item.carbs}
-                    {item.carbs !== "N/A" && "g"}
+                    <span className="unit">{item.carbs !== "N/A" && "g"}</span>
                   </span>
                 </span>
                 <span>
                   <span>Sugars</span>
-                  <span>
+                  <span className={item.sugars === "N/A" ? "na" : ""}>
                     {item.sugars}
-                    {item.sugars !== "N/A" && "g"}
+                    <span className="unit">{item.sugars !== "N/A" && "g"}</span>
                   </span>
                 </span>
                 <span>
                   <span>Protein</span>
-                  <span>
+                  <span className={item.protein === "N/A" ? "na" : ""}>
                     {item.protein}
-                    {item.protein !== "N/A" && "g"}
+                    <span className="unit">
+                      {item.protein !== "N/A" && "g"}
+                    </span>
                   </span>
                 </span>
               </div>
             ) : (
               <div className="table-option cost">
-                <h3>Comparing Nutrition</h3>
+                <h3>Comparing Cost & Value for Money</h3>
                 <span>
                   <span>Price</span>
                   <span>${item.price}</span>
                 </span>
                 <span>
                   <span>Serving Size</span>
-                  <span>
+                  <span className={item.serving === "N/A" ? "na" : ""}>
                     {item.serving}
-                    {item.serving !== "N/A" && "g/$"}
+                    <span className="unit">
+                      {item.serving !== "N/A" && "g/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Calories</span>
-                  <span>
+                  <span className={item.cal === "N/A" ? "na" : ""}>
                     {item.cal}
-                    {item.cal !== "N/A" && "kcal/$"}
+                    <span className="unit">
+                      {item.cal !== "N/A" && "kcal/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Fats</span>
-                  <span>
+                  <span className={item.fat === "N/A" ? "na" : ""}>
                     {item.fat}
-                    {item.fat !== "N/A" && "g/$"}
+                    <span className="unit">{item.fat !== "N/A" && "g/$"}</span>
                   </span>
                 </span>
                 <span>
                   <span>Cholesterol</span>
-                  <span>
+                  <span className={item.cholesterol === "N/A" ? "na" : ""}>
                     {item.cholesterol}
-                    {item.cholesterol !== "N/A" && "mg/$"}
+                    <span className="unit">
+                      {item.cholesterol !== "N/A" && "mg/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Sodium</span>
-                  <span>
+                  <span className={item.sodium === "N/A" ? "na" : ""}>
                     {item.sodium}
-                    {item.sodium !== "N/A" && "mg/$"}
+                    <span className="unit">
+                      {item.sodium !== "N/A" && "mg/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Carbohydrates</span>
-                  <span>
+                  <span className={item.carbs === "N/A" ? "na" : ""}>
                     {item.carbs}
-                    {item.carbs !== "N/A" && "g/$"}
+                    <span className="unit">
+                      {item.carbs !== "N/A" && "g/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Sugars</span>
-                  <span>
+                  <span className={item.sugar === "N/A" ? "na" : ""}>
                     {item.sugars}
-                    {item.sugars !== "N/A" && "g/$"}
+                    <span className="unit">
+                      {item.sugars !== "N/A" && "g/$"}
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>Protein</span>
-                  <span>
+                  <span className={item.protein === "N/A" ? "na" : ""}>
                     {item.protein}
-                    {item.protein !== "N/A" && "g/$"}
+                    <span className="unit">
+                      {item.protein !== "N/A" && "g/$"}
+                    </span>
                   </span>
                 </span>
               </div>

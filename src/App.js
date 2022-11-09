@@ -31,12 +31,22 @@ function App() {
         </h1>
       </header>
       <div id="versus-select">
-        <select onChange={handleChange} value={versus.name}>
+        <h3>Compare In-N-Out with other popular fast food restaurant chains</h3>
+        <p>Select popular products on nutrition and value for money</p>
+        <label htmlFor="select-restaurant">
+          Choose a restaurant to compare
+        </label>
+        <select
+          id="select-restaurant"
+          onChange={handleChange}
+          value={versus.name}
+        >
           {data.map((x, i) =>
             x.name === "In-N-Out" ? null : <option key={i}>{x.name}</option>
           )}
         </select>
-        <select onChange={changeType}>
+        <label htmlFor="select-option">Select a category</label>
+        <select id="select-option" onChange={changeType}>
           <option>Nutrition</option>
           <option>Cost</option>
         </select>

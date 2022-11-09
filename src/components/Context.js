@@ -11,7 +11,8 @@ const data = [
   {
     name: "In-N-Out",
     logo: mainlogo,
-    description: "info IN-N-OUT",
+    website: "https://www.in-n-out.com/",
+    nutrition: "https://www.in-n-out.com/menu/nutrition-info",
     option: {
       nutrition: [
         {
@@ -138,7 +139,8 @@ const data = [
   {
     name: "McDonald's",
     logo: mclogo,
-    desription: "info McDonald's",
+    website: "https://www.mcdonalds.com",
+    nutrition: "http://nutrition.mcdonalds.com/nutrition1/nutritionfacts.pdf",
     option: {
       nutrition: [
         {
@@ -265,7 +267,8 @@ const data = [
   {
     name: "Burger King",
     logo: bklogo,
-    description: "info Burger King",
+    website: "https://www.bk.com/",
+    nutrition: "https://company.bk.com/pdfs/nutrition.pdf",
     option: {
       nutrition: [
         {
@@ -392,7 +395,8 @@ const data = [
   {
     name: "Wendy's",
     logo: wendyslogo,
-    description: "info Wendy's",
+    website: "https://www.wendys.com/",
+    nutrition: "https://www.fastfoodmenuprices.com/wendys-nutrition/",
     option: {
       nutrition: [
         {
@@ -519,7 +523,9 @@ const data = [
   {
     name: "Shake Shack",
     logo: sslogo,
-    description: "info shake shack",
+    website: "https://shakeshack.com/",
+    nutrition:
+      "https://shakeshack.com/sites/default/files/2021-09/SHA_NutritionFacts_ShakeShack-tables-August%2031%2C%202021%20.pdf",
     option: {
       nutrition: [
         {
@@ -646,7 +652,8 @@ const data = [
   {
     name: "The Habit",
     logo: habitlogo,
-    description: "info habit",
+    website: "https://www.habitburger.com/",
+    nutrition: "https://www.habitburger.com/nutritional-information/",
     option: {
       nutrition: [
         {
