@@ -1,71 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../style/table.scss";
 
 const Table = (props) => {
   const versus = props.versus;
-  const [option, setOption] = useState("");
+  // console.log(versus);
+  const compType = props.option;
+  const [item, setItem] = useState(versus.option[compType][0]);
+  // console.log(item);
 
-  const handleOption = (e) => {
-    if (e.target.value === "--Select--") {
-      setOption("");
-      return;
+  useEffect(() => {
+    setItem(versus.option[compType || "nutrition"][0]);
+  }, [versus, compType]);
+
+  const handleItem = (e) => {
+    for (let each of versus.option[compType]) {
+      if (each.name === e.target.value) {
+        setItem(each);
+      }
     }
-    setOption(e.target.value);
   };
 
   return (
     <div className="table">
       <div className="table-logo">
-        <img src={versus.logo || ""} alt={versus.name || ""} />
+        <img src={versus && versus.logo} alt={versus && versus.name} />
       </div>
       {versus && (
         <>
           <h2>{versus.name}</h2>
           <div className="table-main">
-            <span>{versus.info}</span>
-            <span>{versus.info}</span>
-            <span>{versus.info}</span>
+            <span>{versus.description}</span>
+            <span>{versus.menuLink}</span>
           </div>
           <div className="table-select">
-            <select onChange={handleOption}>
-              <option>--Select--</option>
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
+            <select onChange={handleItem}>
+              {compType &&
+                versus.option[compType].map((x, i) => (
+                  <option key={i}>{x.name}</option>
+                ))}
             </select>
-            {option && (
+            {item && compType === "nutrition" ? (
               <div className="table-option">
-                <h3>{option}</h3>
+                <h3>Comparing Nutrition</h3>
                 <span>
-                  <span>protein</span>
-                  <span>{versus["option"].info}</span>
+                  <span>Serving Size</span>
+                  <span>{item.serving}g</span>
                 </span>
                 <span>
-                  <span>fiber</span>
-                  <span>{versus["option"].info}</span>
+                  <span>Calories</span>
+                  <span>{item.cal}kcal</span>
                 </span>
                 <span>
-                  <span>saturated fats</span>
-                  <span>{versus["option"].info}</span>
+                  <span>Fats</span>
+                  <span>{item.fat}g</span>
                 </span>
                 <span>
-                  <span>meta info</span>
-                  <span>{versus["option"].info}</span>
+                  <span>Cholesterol</span>
+                  <span>{item.cholesterol}mg</span>
                 </span>
                 <span>
-                  <span>meta info</span>
-                  <span>{versus["option"].info}</span>
+                  <span>Sodium</span>
+                  <span>{item.sodium}mg</span>
+                </span>
+                <span>
+                  <span>Carbohydrates</span>
+                  <span>{item.carbs}g</span>
+                </span>
+                <span>
+                  <span>Sugars</span>
+                  <span>{item.sugars}g</span>
+                </span>
+                <span>
+                  <span>Protein</span>
+                  <span>{item.protein}g</span>
                 </span>
               </div>
-            )}
+            ) : null}
           </div>
         </>
       )}
-      {/* {props.remove && versus && (
-        <button className="table-remove" onClick={props.remove}>
-          Remove
-        </button>
-      )} */}
     </div>
   );
 };

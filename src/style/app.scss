@@ -19,6 +19,7 @@ $break: #fafffa;
 header {
   display: flex;
   width: 100%;
+  // min-height: 20vh;
   min-height: 12vh;
   justify-content: center;
   align-items: flex-end;
@@ -27,10 +28,17 @@ header {
   box-shadow: 0px 1px 10px -5px #000;
   border-bottom: 4px solid $dark;
   padding: 10px 1rem;
+  // padding: 1rem 1rem;
   background-color: $white;
 
   h1 {
     line-height: 130%;
+
+    > img {
+      // height: 7rem;
+      height: min(7vw, 2.3rem);
+      // margin-bottom: -1rem;
+    }
 
     span:first-child {
       font-family: "Open Sans", sans-serif;
@@ -41,8 +49,10 @@ header {
     span:last-child {
       font-family: "Allura", serif;
       font-weight: 400;
-      font-size: min(15vw, 4.5rem);
-      color: $dark;
+      font-size: min(15vw, 5rem);
+      color: #ffef00;
+      text-shadow: 1px 1px 2px #c6001d;
+      margin-left: -1.5rem;
     }
   }
 }
