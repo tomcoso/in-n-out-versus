@@ -40,42 +40,130 @@ const Table = (props) => {
                 ))}
             </select>
             {item && compType === "nutrition" ? (
-              <div className="table-option">
+              <div className="table-option nutrition">
                 <h3>Comparing Nutrition</h3>
                 <span>
                   <span>Serving Size</span>
-                  <span>{item.serving}g</span>
+                  <span>
+                    {item.serving}
+                    {item.serving !== "N/A" && "g"}
+                  </span>
                 </span>
                 <span>
                   <span>Calories</span>
-                  <span>{item.cal}kcal</span>
+                  <span>
+                    {item.cal}
+                    {item.cal !== "N/A" && "kcal"}
+                  </span>
                 </span>
                 <span>
                   <span>Fats</span>
-                  <span>{item.fat}g</span>
+                  <span>
+                    {item.fat}
+                    {item.fat !== "N/A" && "g"}
+                  </span>
                 </span>
                 <span>
                   <span>Cholesterol</span>
-                  <span>{item.cholesterol}mg</span>
+                  <span>
+                    {item.cholesterol}
+                    {item.cholesterol !== "N/A" && "mg"}
+                  </span>
                 </span>
                 <span>
                   <span>Sodium</span>
-                  <span>{item.sodium}mg</span>
+                  <span>
+                    {item.sodium}
+                    {item.sodium !== "N/A" && "mg"}
+                  </span>
                 </span>
                 <span>
                   <span>Carbohydrates</span>
-                  <span>{item.carbs}g</span>
+                  <span>
+                    {item.carbs}
+                    {item.carbs !== "N/A" && "g"}
+                  </span>
                 </span>
                 <span>
                   <span>Sugars</span>
-                  <span>{item.sugars}g</span>
+                  <span>
+                    {item.sugars}
+                    {item.sugars !== "N/A" && "g"}
+                  </span>
                 </span>
                 <span>
                   <span>Protein</span>
-                  <span>{item.protein}g</span>
+                  <span>
+                    {item.protein}
+                    {item.protein !== "N/A" && "g"}
+                  </span>
                 </span>
               </div>
-            ) : null}
+            ) : (
+              <div className="table-option cost">
+                <h3>Comparing Nutrition</h3>
+                <span>
+                  <span>Price</span>
+                  <span>${item.price}</span>
+                </span>
+                <span>
+                  <span>Serving Size</span>
+                  <span>
+                    {item.serving}
+                    {item.serving !== "N/A" && "g/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Calories</span>
+                  <span>
+                    {item.cal}
+                    {item.cal !== "N/A" && "kcal/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Fats</span>
+                  <span>
+                    {item.fat}
+                    {item.fat !== "N/A" && "g/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Cholesterol</span>
+                  <span>
+                    {item.cholesterol}
+                    {item.cholesterol !== "N/A" && "mg/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Sodium</span>
+                  <span>
+                    {item.sodium}
+                    {item.sodium !== "N/A" && "mg/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Carbohydrates</span>
+                  <span>
+                    {item.carbs}
+                    {item.carbs !== "N/A" && "g/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Sugars</span>
+                  <span>
+                    {item.sugars}
+                    {item.sugars !== "N/A" && "g/$"}
+                  </span>
+                </span>
+                <span>
+                  <span>Protein</span>
+                  <span>
+                    {item.protein}
+                    {item.protein !== "N/A" && "g/$"}
+                  </span>
+                </span>
+              </div>
+            )}
           </div>
         </>
       )}
